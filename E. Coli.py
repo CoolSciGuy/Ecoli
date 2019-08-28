@@ -15,7 +15,7 @@ import seaborn as sns
 
 
 from Label import label
-from makefig import makefig
+from makefig import makefig1, makefig2
 
 Pollutant = ['E. Coli  MPN' , 'Escherichia coli'] #pick the right pollutant
 
@@ -56,14 +56,17 @@ DB['E. Coli']=DB['E. Coli'].astype(float)
 #Label
 label(DB)
 
-#
-Station = 'Potomac Mainstem'
-Data = DB[DB['Watershed'] == Station]
+List0 = list(DB['Watershed'].unique())
+List1 = [	"ANA01",	"ANA02",	"ANA03",	"ANA04",	"ANA05",	"ANA06",	"ANA07",	"ANA08",	"ANA09",	"ANA10",	"ANA11",	"ANA12",	"ANA13",	"ANA14",	"ANA15",	"ANA16","ANA28",	"ANA17",	"ANA18",	"ANA19",	"ANA20",	"ANA21",	"ANA21 ",	"ANA22",	"ANA23",	"ANA24",	"ANA25",	"ANA26",	"ANA27",	"ANA29",	"ANA30"]
+List2 = ["PMS01",	"PMS02",	"PMS03",	"PMS05",	"PMS07",	"PMS08",	"PMS09",	"PMS10",	"PMS11",	"PMS12",	"PMS13",	"PMS16",	"PMS18",	"PMS21",	"PMS21 ",	"PMS23",	"PMS25",	"PMS27",	"PMS29",	"PMS31",	"PMS33",	"PMS35",	"PMS37",	"PMS39",	"PMS41",	"PMS44",	"PMS46",	"PMS48",	"PMS51" , "PMS52"]
+List3 = ["RCR12","RCR01",	"RCR04","RCR07",	"RCR09"] # Rock Creek 
 
+for Station in List0:
 
-makefig(Data , Station)
+    Data = DB[DB['Watershed'] == Station]
+    if (Data['E. Coli'].sum() != 0):
 
+        makefig1(Data , Station)
+#        makefig2(Data , Station)
 
-
-
-
+    
