@@ -10,8 +10,8 @@ Created on Tue Aug 27 12:00:25 2019
 
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 from Label import label
@@ -63,24 +63,24 @@ Data = DB[DB['Watershed'] == Station]
 
 
 
-# plt.figure(1, figsize = (12,24) , dpi = 300)
-# plt.rcParams.update({'font.size': 12})
-# plt.title('Ambient E. coli in' + Station)
-# plt.grid(True)
-#
-# #sns.boxplot(x="month", y= 'E. Coli', hue='Watershed', data=Data ,showfliers=False )
+plt.figure(1, figsize = (12,24) , dpi = 300)
+plt.rcParams.update({'font.size': 12})
+plt.title('Ambient E. coli in' + Station)
+plt.grid(True)
+#sns.barplot(x='month' , y='E. Coli' , data=Data)
+sns.boxenplot(x="month", y='E. Coli', data=Data ,color =  'blue' )
 # plt = Data.boxplot(column = 'E. Coli',by='month' ,showfliers=False)
-#
-#
-# plt.ylim(0,2500)
-# plt.ylabel('E. coli (MPN)')
-# plt.xlabel('Months')
-# plt.suptitle("")
-# plt.gcf().autofmt_xdate()
-#
-# plt.axhline(y=410, color='r', linestyle=':')
-# plt.axhline(y=126, color='b', linestyle=':')
-# plt.axhline(y=235, color='g', linestyle=':')
-#plt.show() 
+
+
+plt.ylim(0,2500)
+plt.ylabel('E. coli (MPN)')
+plt.xlabel('Months')
+plt.suptitle("")
+plt.gcf().autofmt_xdate()
+
+plt.axhline(y=410, color='r', linestyle=':')
+plt.axhline(y=126, color='b', linestyle=':')
+plt.axhline(y=235, color='g', linestyle=':')
+plt.show()
 
 
